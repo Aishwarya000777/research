@@ -2,7 +2,7 @@
 import os
 import joblib
 import pandas as pd
-
+from src.preprocessing import preprocess_official_text
 from src.dataset import load_scotus_dataset
 from src.preprocessing import preprocess_text
 from src.feature_extraction import extract_tfidf_features
@@ -36,11 +36,11 @@ def run_official_experiment():
 
     # 3. Preprocess text
     train_texts = train["text"].apply(
-        preprocess_text
+        preprocess_official_text
     ).tolist()
 
     test_texts = test["text"].apply(
-        preprocess_text
+        preprocess_official_text
     ).tolist()
 
     y_train = train["label"].values

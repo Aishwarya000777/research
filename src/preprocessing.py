@@ -24,6 +24,17 @@ def preprocess_text(text):
 
     return text
 
+def preprocess_official_text(text):
+    """
+    Match the authors' SCOTUS linear data preparation.
+    Normalize whitespace only.
+    """
+
+    if not isinstance(text, str):
+        return ""
+
+    return " ".join(text.split())    
+
 
 if __name__ == "__main__":
 
@@ -37,3 +48,5 @@ if __name__ == "__main__":
 
     print("\nPreprocessed text:")
     print(preprocess_text(sample))
+
+
